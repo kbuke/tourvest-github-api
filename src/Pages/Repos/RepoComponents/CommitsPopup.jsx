@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useFetch } from "../../../Hooks/useFetch";
+import { CommitInfo } from "./CommitInfo";
 
 import "./CommitsPopUp.css"
+
 import { RenderCommits } from "./RenderCommits";
 import { userFaveCommit } from "../../../Stores/userFaveCommit";
 import { RenderFaveCommits } from "./RenderFaveCommits";
+import ReactSelect from "react-select"
+import { ImPrevious } from "react-icons/im";
 
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
@@ -77,21 +81,42 @@ export function CommitsPopUp({
                                     {option}
                                 </div>
                             ))}
+
+                            <ReactSelect 
+                                className="commit-select"
+                                options={dateOptions}
+                                value={dateOptions.find(option => option.value === sortDates)}
+                                onChange={option => setSortDates(option?.value || "Latest")}
+                            />
                         </div>
                     }
 
-                    {commitOption.toLowerCase() === "all commits" ?
-                        <RenderCommits 
-                            repoCommits={repoCommits}
-                            favourites={favourites}
-                            toggleFavourites={toggleFavourites}
+                    {sha?
+                        <CommitInfo 
+                            selectedRepo={selectedRepo}
+                            username={username}
+                            sha={sha}
+                            isloading={isloading}
+                            setIsLoading={setIsLoading}
+                            error={error}
+                            setError={setError}
                         />
                         :
-                        <RenderFaveCommits 
-                            favourites={favourites}
-                            toggleFavourites={toggleFavourites}
-                            repoCommits={repoCommits}
-                        />
+                        commitOption.toLowerCase() === "all commits" ?
+                            <RenderCommits 
+                                repoCommits={repoCommits}
+                                favourites={favourites}
+                                toggleFavourites={toggleFavourites}
+                                sortDates={sortDates}
+                                setSha={setSha}
+                            />
+                            :
+                            <RenderFaveCommits 
+                                favourites={favourites}
+                                toggleFavourites={toggleFavourites}
+                                repoCommits={repoCommits}
+                                setSha={setSha}
+                            />
                     }
 
                     <div

@@ -1,0 +1,16 @@
+.no-fave-commit-div{
+    justify-self: center;
+    align-self: center;
+    margin: 10px;
+    padding: 0.5%;
+    border-radius: .3rem;
+    background-image: linear-gradient(
+        to right,
+        hsl(295, 47%, 55%),
+        hsl(292, 94%, 21%)
+    );
+    width: 60%;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+}

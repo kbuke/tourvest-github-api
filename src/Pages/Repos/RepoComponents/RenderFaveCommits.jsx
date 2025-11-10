@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { CommitsTable } from "../../../Components/CommitsTable"
+import "./RenderFaveCommits.css"
 
 export function RenderFaveCommits({
     favourites,
     toggleFavourites,
-    repoCommits
+    repoCommits,
+    setSha
 }){
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
@@ -14,7 +16,9 @@ export function RenderFaveCommits({
 
     return(
         faveCommit.length === 0?
-            <div>
+            <div
+                className="no-fave-commit-div"
+            >
                 <p>
                     You have not favourited any commits in this repo yet.
                 </p>
@@ -31,6 +35,8 @@ export function RenderFaveCommits({
                 commitsPerPg={5}
                 favourites={favourites}
                 toggleFavourites={toggleFavourites}
+                setSha={setSha}
+                arrowClassName={"commit-arrow"}  
             />
     )
 }

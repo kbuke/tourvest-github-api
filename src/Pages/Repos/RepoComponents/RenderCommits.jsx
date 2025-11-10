@@ -1,19 +1,36 @@
 import { useState } from "react";
 import { CommitsTable } from "../../../Components/CommitsTable";
+import { SortCommits } from "../../../Components/SortCommits";
+
+import "./RenderCommits.css"
 
 export function RenderCommits({
     repoCommits,
     favourites,
-    toggleFavourites
+    toggleFavourites,
+    sortDates,
+    setSha
 }){
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndIndex] = useState(5)
 
-    return(
-        repoCommits.length === 0?
-            <div>
+    // Sort commits based on their times using SortCommits compnent
+    const sortCommits = SortCommits({
+        array: repoCommits,
+        sortDates
+    })
 
+    return(
+        sortCommits.length === 0?
+            <div
+                className="no-commit-container"
+            >
+                <p
+                    className="no-commit-text"
+                >
+                    There are no commits to diaply in this repo.
+                </p>
             </div>
         :
             <CommitsTable 
@@ -27,6 +44,8 @@ export function RenderCommits({
                 commitsPerPg={5}
                 favourites={favourites}
                 toggleFavourites={toggleFavourites}
+                setSha={setSha}
+                arrowClassName={"commit-arrow"}
             />
     )
 }

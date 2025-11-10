@@ -58,7 +58,7 @@ input:focus-visible{
 /* Pagination Arrow Styling */
 .arrow-containers{
   display: flex;
-  height: 25%;
+  justify-self: center;
   justify-content: center;
   align-items: center;
   gap: 2%;
@@ -67,8 +67,12 @@ input:focus-visible{
 
 .arrow{
   cursor: pointer;
-  width: 40%;
-  height: 40%;
-  /* border-radius: 50%; */
+  width: 20%;
+  height: 30%;
   border: none;
+}
+
+.commit-arrow{
+  height: 40%;
+  width: 35%;
 }

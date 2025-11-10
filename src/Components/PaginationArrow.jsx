@@ -8,7 +8,8 @@ export function PaginationArrow({
     currentPg, setCurrentPg,
     startIndex, setStartIndex,
     endIndex, setEndIndex,
-    instanceNumber, lastPg
+    instanceNumber, lastPg,
+    additionalClassName
 }){
     return(
         <>
@@ -19,7 +20,7 @@ export function PaginationArrow({
                     null
                     :
                     <FontAwesomeIcon 
-                        className="arrow"
+                        className={`arrow ${additionalClassName}`}
                         icon={faArrowAltCircleLeft}
                         onClick={() => {
                             setCurrentPg(currentPg - 1)
@@ -33,7 +34,7 @@ export function PaginationArrow({
                     null
                     :
                     <FontAwesomeIcon 
-                        className="arrow"
+                        className={`arrow ${additionalClassName}`}
                         icon={faArrowAltCircleRight}
                         onClick={() => {
                             setCurrentPg(currentPg + 1)

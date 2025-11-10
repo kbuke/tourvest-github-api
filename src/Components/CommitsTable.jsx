@@ -9,7 +9,9 @@ export function CommitsTable({
     startIndex, setStartIndex,
     endIndex, setEndIndex,
     commitsPerPg,
-    favourites, toggleFavourites
+    favourites, toggleFavourites,
+    setSha,
+    arrowClassName
 }){
     const arrayLength = arrayType?.length
     const noOfPages = Math.ceil(arrayLength/commitsPerPg)
@@ -68,6 +70,7 @@ export function CommitsTable({
 
                         <button
                             className="commit-info-button"
+                            onClick={() => setSha(repo.sha)}
                         >
                             More Information
                         </button>
@@ -84,6 +87,7 @@ export function CommitsTable({
                 setEndIndex={setEndIndex}
                 instanceNumber={commitsPerPg}
                 lastPg={noOfPages}
+                additionalClassName={arrowClassName}
             />
         </div>
     )

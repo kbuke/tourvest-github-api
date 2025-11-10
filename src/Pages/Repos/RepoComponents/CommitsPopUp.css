@@ -67,6 +67,15 @@
     border: none;
 }
 
+.commit-select{
+    font-size: 1.5rem;
+    border-radius: .3rem;
+    z-index: 150;
+    border: none;
+    text-align: center;
+    width: 17%;
+}
+
 .commit-button-container{
     height: 10%;
     display: flex;
