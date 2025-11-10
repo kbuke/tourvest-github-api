@@ -36,3 +36,19 @@ input:focus-visible{
   color: white;
   height: auto;
 }
+
+/* Pagination Arrow Styling */
+.arrow-containers{
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+
+.arrow{
+  cursor: pointer;
+  width: 5%;
+  height: 2%;
+  border: solid;
+  border-radius: 50%;
+  border: none;
+}

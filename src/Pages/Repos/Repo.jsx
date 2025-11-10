@@ -5,6 +5,7 @@ import { ImgComponent } from "../../Components/ImgComponent"
 
 import "./Repo.css"
 import { NavBar } from "./RepoComponents/NavBar"
+import { RenderRepos } from "./RepoComponents/RenderRepos"
 
 export function Repo(){
     const [repos, setRepos] = useState([])
@@ -55,6 +56,10 @@ export function Repo(){
             </div>
 
             <NavBar />
+
+            <RenderRepos 
+                repos={repos}
+            />
         </>
     )
 }
