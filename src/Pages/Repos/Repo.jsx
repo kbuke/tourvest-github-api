@@ -1,6 +1,10 @@
 import { useState } from "react"
 import { useOutletContext, useParams } from "react-router"
 import { useFetch } from "../../Hooks/useFetch"
+import { ImgComponent } from "../../Components/ImgComponent"
+
+import "./Repo.css"
+import { NavBar } from "./RepoComponents/NavBar"
 
 export function Repo(){
     const [repos, setRepos] = useState([])
@@ -32,6 +36,25 @@ export function Repo(){
 
     return(
         <>
+            <div
+                className="user-div"
+            >
+                <ImgComponent 
+                    src={userRepo?.avatar_url}
+                    className={"user-img"}
+                    alt={`${username}Img`}
+                />
+
+                <>
+                    <p
+                        className="git-username"
+                    >
+                        {username}
+                    </p>
+                </>
+            </div>
+
+            <NavBar />
         </>
     )
 }

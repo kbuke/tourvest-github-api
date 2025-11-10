@@ -8,6 +8,7 @@ import stars from "../../Resources/starrynight.jpg"
 import earth from "../../Resources/earth.png"
 import astrocat from "../../Resources/astrocat1.png"
 import gitLogo from "../../Resources/githublogo.png"
+import { ImgComponent } from "../../Components/ImgComponent";
 
 export function Home(){
 
@@ -16,7 +17,7 @@ export function Home(){
 
     const imgContainer = (src, className, alt) => {
         return(
-            <img 
+            <ImgComponent 
                 src={src}
                 className={className}
                 alt={alt}
