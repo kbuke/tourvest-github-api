@@ -43,7 +43,7 @@ npm install react-form-hook
 ## How It Works
 -**Home Page** uses react-form-hook to handle validation and fetch user details
 
-![Demo](gifs/form validation.gif)
+![Demo](gifs/gifs/form-validation.gif)
 
 
 
