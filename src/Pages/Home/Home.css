@@ -1,0 +1,28 @@
+.search-api-container{
+    border: solid;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.earth-img{
+    height: 100vh;
+}
+
+.astrocat-img{
+    position: absolute;
+    top: 0;
+    height: 80%;
+}
+
+.git-logo-img{
+    height: 15%;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    background-color: white;
+    border-radius: 50%;
+}

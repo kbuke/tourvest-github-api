@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { Outlet } from "react-router"
+
+import "./index.css"
 
 function App() {
   
@@ -14,7 +17,7 @@ function App() {
             repos: repos, setRepos: setRepos,
 
             isLoading: isLoading, setIsLoading: setIsLoading,
-            
+
             error: error, setError: setError
           }
         }
