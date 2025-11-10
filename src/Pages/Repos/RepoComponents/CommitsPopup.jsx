@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useFetch } from "../../../Hooks/useFetch";
 
+import "./CommitsPopUp.css"
+import { RenderCommits } from "./RenderCommits";
+
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
     username, 
@@ -32,5 +35,61 @@ export function CommitsPopUp({
         }
     )
 
-    console.log(repoCommits)
+    const commitFilterOptions = ["All Commits", "Favourite Commits"]
+
+    return(
+        <div
+            className="repo-popup"
+        >
+            {isloading ?
+                <div
+                    className="loader"
+                >
+                </div>
+                :
+                <div
+                    className="commit-container"
+                >
+                    <h1
+                        className="chosen-repo-title"
+                    >
+                        {selectedRepo}
+                    </h1>
+
+                    {sha?
+                        null 
+                        :
+                        <div
+                            className="commit-options-container"
+                        >
+                            {commitFilterOptions.map((option, index) => (
+                                <div
+                                    key={index}
+                                    className={`commit-options ${commitOption.toLowerCase() === option.toLowerCase()? "selected" : ""}`}
+                                    onClick={() => setCommitOption(option)}
+                                >
+                                    {option}
+                                </div>
+                            ))}
+                        </div>
+                    }
+
+                    <RenderCommits 
+                        repoCommits={repoCommits}
+                    />  
+
+                    <div
+                        className="commit-button-container"
+                    >
+                        <button
+                            className="commit-buttons close-commit-button"
+                            onClick={() => setSelectedRepo(null)}
+                        >
+                            Close
+                        </button> 
+                    </div>
+                </div>
+            }
+        </div>
+    )
 }

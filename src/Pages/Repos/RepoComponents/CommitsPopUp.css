@@ -1,0 +1,56 @@
+.repo-popup{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: hsla(0, 0%, 0%, 80%);
+    z-index: 100;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.commit-container{
+    height: 95%;
+    width: 90%;
+    border-radius: 0.3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.chosen-repo-title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    font-weight: 300;
+    justify-self: center;
+}
+
+.commit-button-container{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.commit-buttons{
+    justify-self: center;
+    align-self: center;
+
+    height: 80%;
+    width: 80%;
+    border: none;
+    border-radius: 0.3em;
+    color: white;
+}
+
+.close-commit-button{
+    background-image: linear-gradient(
+        to right,
+        hsl(0, 68%, 75%),
+        hsl(0, 62%, 53%)
+    );
+}

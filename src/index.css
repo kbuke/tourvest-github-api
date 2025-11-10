@@ -58,15 +58,17 @@ input:focus-visible{
 /* Pagination Arrow Styling */
 .arrow-containers{
   display: flex;
+  height: 25%;
   justify-content: center;
+  align-items: center;
   gap: 2%;
+  width: 30%;
 }
 
 .arrow{
   cursor: pointer;
-  width: 5%;
-  height: 2%;
-  border: solid;
-  border-radius: 50%;
+  width: 40%;
+  height: 40%;
+  /* border-radius: 50%; */
   border: none;
 }
