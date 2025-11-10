@@ -8,7 +8,7 @@ export function CommitInfo({
     selectedRepo,
     username,
     sha,
-    isloading,
+    isLoading,
     setIsLoading,
     error,
     setError
@@ -17,8 +17,7 @@ export function CommitInfo({
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndindex] = useState(5)
-
-    console.log("Loading", isloading)
+    // const [isLoading, setIsLoading] = useState(false)
 
     useFetch(
         `repos/${username}/${selectedRepo}/commits/${sha}`, {
@@ -28,6 +27,8 @@ export function CommitInfo({
             onSuccess: null
         }
     )
+
+    console.log("Loading", isLoading)
 
     // Get specific information on the commits details
     const effectedFiles = commitInfo?.files
@@ -43,7 +44,7 @@ export function CommitInfo({
     const fileHeaders = ["File Name", "Additions", "Deletions"]
 
     return(
-        isloading ?
+        isLoading ?
         <div
             className="loader"
         ></div>

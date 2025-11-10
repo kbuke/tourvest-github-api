@@ -19,7 +19,7 @@ export function useFetch(additionalUrl, {setData, setIsLoading, setError, onSucc
                 }
 
                 if (res.status === 403){
-                    throw new Error("Request denied.")
+                    throw new Error("You have sent to many requests, please wait while it reloads.")
                 }
                 
                 if (!res.ok) throw new Error(`Error ${res.status}`)

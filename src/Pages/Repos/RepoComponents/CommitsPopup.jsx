@@ -13,7 +13,7 @@ import { ImPrevious } from "react-icons/im";
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
     username, 
-    isloading, setIsLoading,
+    isLoading, setIsLoading,
     error, setError,
 }){
     const [sha, setSha] = useState(null)
@@ -23,6 +23,8 @@ export function CommitsPopUp({
 
     const favourites = userFaveCommit((state) => state.favourites)
     const toggleFavourites = userFaveCommit((state) => state.toggleFavourites)
+
+    console.log("Commit Pop Up isLoading", isLoading)
 
 
     const dateOptions = [
@@ -51,7 +53,7 @@ export function CommitsPopUp({
         <div
             className="repo-popup"
         >
-            {isloading ?
+            {isLoading ?
                 <div
                     className="loader"
                 >
@@ -96,7 +98,7 @@ export function CommitsPopUp({
                             selectedRepo={selectedRepo}
                             username={username}
                             sha={sha}
-                            isloading={isloading}
+                            isLoading={isLoading}
                             setIsLoading={setIsLoading}
                             error={error}
                             setError={setError}
