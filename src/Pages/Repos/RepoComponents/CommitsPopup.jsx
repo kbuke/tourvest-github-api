@@ -118,6 +118,7 @@ export function CommitsPopUp({
                                 toggleFavourites={toggleFavourites}
                                 repoCommits={repoCommits}
                                 setSha={setSha}
+                                sortDates={sortDates}
                             />
                     }
 

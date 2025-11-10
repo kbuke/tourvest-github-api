@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { CommitsTable } from "../../../Components/CommitsTable"
 import "./RenderFaveCommits.css"
+import { SortCommits } from "../../../Components/SortCommits"
 
 export function RenderFaveCommits({
     favourites,
     toggleFavourites,
     repoCommits,
-    setSha
+    setSha,
+    sortDates
 }){
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
@@ -14,8 +16,13 @@ export function RenderFaveCommits({
 
     const faveCommit = repoCommits.filter(repo => favourites.includes(repo.sha))
 
+    const sortCommits = SortCommits({
+        array: faveCommit,
+        sortDates
+    })
+
     return(
-        faveCommit.length === 0?
+        sortCommits.length === 0?
             <div
                 className="no-fave-commit-div"
             >

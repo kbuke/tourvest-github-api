@@ -17,7 +17,6 @@ export function CommitInfo({
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndindex] = useState(5)
-    // const [isLoading, setIsLoading] = useState(false)
 
     useFetch(
         `repos/${username}/${selectedRepo}/commits/${sha}`, {
