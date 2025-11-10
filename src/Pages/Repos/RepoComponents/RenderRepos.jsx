@@ -9,11 +9,12 @@ export function RenderRepos({
     allRepos, 
     setSelectedRepo
 }){
-    // State that only 6 repositories will be shown per page
-    const [startIndex, setStartIndex] = useState(0)
-    const [endIndex, setEndIndex] = useState(6)
-
     const [currentPg, setCurrentPg] = useState(1)
+
+    const reposPerPg = 6
+    
+    const startIndex = (currentPg - 1) * reposPerPg
+    const endIndex = startIndex + reposPerPg
 
     const numberOfRepos = repos?.length 
 
@@ -30,12 +31,6 @@ export function RenderRepos({
             >
                 Repositories
             </h1>
-
-            {/* <SortRepos 
-                setRepos={setRepos}
-                allRepos={allRepos}
-                setCurrentPg={setCurrentPg}
-            /> */}
 
             {renderedRepos.length > 0 ?
                 <>
@@ -95,9 +90,9 @@ export function RenderRepos({
                         currentPg={currentPg}
                         setCurrentPg={setCurrentPg}
                         startIndex={startIndex}
-                        setStartIndex={setStartIndex}
+                        setStartIndex={null}
                         endIndex={endIndex}
-                        setEndIndex={setEndIndex}
+                        setEndIndex={null}
                         instanceNumber={6}
                         lastPg={numberOfPages}
                     />
@@ -110,17 +105,6 @@ export function RenderRepos({
                         No Repository to Display
                     </p>
                 </div>}
-
-            {/* <PaginationArrow 
-                currentPg={currentPg}
-                setCurrentPg={setCurrentPg}
-                startIndex={startIndex}
-                setStartIndex={setStartIndex}
-                endIndex={endIndex}
-                setEndIndex={setEndIndex}
-                instanceNumber={6}
-                lastPg={numberOfPages}
-            /> */}
         </div>
     )
 }
