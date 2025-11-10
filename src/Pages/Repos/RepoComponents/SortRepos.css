@@ -1,0 +1,15 @@
+.repo-sort-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+    padding: 1%;
+    margin-bottom: 1.5%;
+}
+
+.repo-filter{
+    width: 22%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.2%;
+}

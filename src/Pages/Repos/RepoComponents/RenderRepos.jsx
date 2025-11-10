@@ -6,7 +6,8 @@ import { SortRepos } from "./SortRepos";
 
 export function RenderRepos({
     repos, setRepos,
-    allRepos
+    allRepos, 
+    setSelectedRepo
 }){
     // State that only 6 repositories will be shown per page
     const [startIndex, setStartIndex] = useState(0)
@@ -33,52 +34,65 @@ export function RenderRepos({
             <SortRepos 
                 setRepos={setRepos}
                 allRepos={allRepos}
+                setCurrentPg={setCurrentPg}
             />
 
-            <div
-                className="repo-grid"
-            >
-                {renderedRepos.map((repo, index) => {
-                    return(
-                        <div
-                            className="repo-container"
-                            key={index}
-                        >
-                            <p
-                                className="repo-date"
+            {renderedRepos.length > 0 ?
+                <div
+                    className="repo-grid"
+                >
+                    {renderedRepos.map((repo, index) => {
+                        return(
+                            <div
+                                className="repo-container"
+                                key={index}
                             >
-                                {repo?.created_at?.slice(0, 10)}
-                            </p>
+                                <p
+                                    className="repo-date"
+                                >
+                                    {repo?.created_at?.slice(0, 10)}
+                                </p>
 
-                            <p
-                                className="repo-name"
-                            >
-                                {repo?.name}
-                            </p>
+                                <p
+                                    className="repo-name"
+                                >
+                                    {repo?.name}
+                                </p>
 
-                            <p
-                                className="repo-language-text"
-                            >
-                                {repo?.language?
-                                <>
-                                    <span>
-                                        Language: </span>
-                                    {repo.language}
-                                </>
-                                :
-                                "No Language to Display"
-                                }
-                            </p>
+                                <p
+                                    className="repo-language-text"
+                                >
+                                    {repo?.language?
+                                    <>
+                                        <span>
+                                            Language: </span>
+                                        {repo.language}
+                                    </>
+                                    :
+                                    "No Language to Display"
+                                    }
+                                </p>
 
-                            <button
-                                className="commit-button"
-                            >
-                                Commits
-                            </button>
-                        </div>
-                    )
-                })}
-            </div>
+                                <button
+                                    className="commit-button"
+                                    onClick={() => {
+                                        setSelectedRepo(repo?.name)
+                                    }}
+                                >
+                                    Commits
+                                </button>
+                            </div>
+                        )
+                    })}
+                </div>
+                :
+                <div
+                    className="error-message-container"
+                >
+                    <p>
+                        No Repository to Display
+                    </p>
+                </div>}
 
             <PaginationArrow 
                 currentPg={currentPg}

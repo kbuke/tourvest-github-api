@@ -24,6 +24,7 @@ input:focus-visible{
   box-shadow: 0 0 10px rgb(237, 9, 157);
 }
 
+/* Styling for errors shown in the home page' form */
 .form-error{
   text-align: center;
   padding: 10px;
@@ -35,6 +36,23 @@ input:focus-visible{
   );
   color: white;
   height: auto;
+}
+
+/* Styling for other error messages*/
+.error-message-container{
+  justify-self: center;
+  align-self: center;
+  width: 60%;
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 59%, 65%),
+    hsl(0, 79%, 55%)
+  );
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding: 0.5%;
+  border-radius: 0.3em;
 }
 
 /* Pagination Arrow Styling */

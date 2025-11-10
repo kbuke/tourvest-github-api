@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import ReactSelect from "react-select"
 
+import "./SortRepos.css"
+
 export function SortRepos({
     setRepos, 
-    allRepos
+    allRepos,
+    setCurrentPg
 }){
     const [searchRepo, setSearchRepo] = useState("")
     const [repoDates, setRepoDates] = useState("Latest")
@@ -51,17 +54,22 @@ export function SortRepos({
             className="repo-sort-flex"
         >
             <ReactSelect 
-                className="select-dates"
+                className="repo-filter select-dates"
                 options={dateOptions}
                 value={dateOptions.find(option => option.value === repoDates)}
                 onChange={option => setRepoDates(option?.value || "Latest")}
             />
 
             <input 
-                className="repo-search-input"
+                className="repo-filter repo-search-input"
                 type="text"
                 placeholder="Filter Repositories by Name"
-                onChange={e => setSearchRepo(e.target.value)}
+                onChange={e => 
+                    {
+                        setSearchRepo(e.target.value)
+                        setCurrentPg(1)
+                    }
+                }
             />
         </div>
     )

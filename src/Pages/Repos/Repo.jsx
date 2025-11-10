@@ -6,6 +6,7 @@ import { ImgComponent } from "../../Components/ImgComponent"
 import "./Repo.css"
 import { NavBar } from "./RepoComponents/NavBar"
 import { RenderRepos } from "./RepoComponents/RenderRepos"
+import { CommitsPopUp } from "./RepoComponents/CommitsPopup"
 
 export function Repo(){
     const [repos, setRepos] = useState([])
@@ -61,7 +62,22 @@ export function Repo(){
                 repos={repos}
                 setRepos = {setRepos}
                 allRepos = {allRepos}
+                setSelectedRepo={setSelectedRepo}
             />
+
+            {selectedRepo ?
+                <CommitsPopUp 
+                    setSelectedRepo={setSelectedRepo}
+                    selectedRepo={selectedRepo}
+                    username={username}
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
+                    error={error}
+                    setError={setError}
+                />
+                :
+                null
+            }
         </>
     )
 }
