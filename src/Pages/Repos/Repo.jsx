@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useOutletContext, useParams } from "react-router"
+import { useEffect, useState } from "react"
+import { useOutletContext, useParams, useNavigate } from "react-router"
 import { useFetch } from "../../Hooks/useFetch"
 import { ImgComponent } from "../../Components/ImgComponent"
 
@@ -12,6 +12,7 @@ export function Repo(){
     const [repos, setRepos] = useState([])
     const [allRepos, setAllRepos] = useState([])
     const [selectedRepo, setSelectedRepo] = useState(null)
+    const [showErrorMessage, setShowErrorMessage] = useState(false)
 
     const appData = useOutletContext()
     const isLoading = appData?.isLoading
@@ -34,10 +35,32 @@ export function Repo(){
         }
     )
 
+    // When a user manually enters an incorrect url that passes are routing check, still send them back to the home page
+    const navigate = useNavigate()
+    // Set up an alert for 3-seconds in the above case
+    useEffect(() => {
+        if(error){
+            setShowErrorMessage(true)
+
+            const timer = setTimeout(() => {
+                navigate("/", {replace: true})
+            }, 3000)
+
+            return () => clearTimeout(timer)
+        }
+    }, [error, navigate])
+
     const userRepo = repos[0]?.owner
 
     return(
         <>
+            {showErrorMessage && (
+                <div
+                    className="error-alert"
+                >
+                    User: <strong>{username}</strong> is not registered on GutHub. Redirecting...
+                </div>
+            )}
             <div
                 className="user-div"
             >
