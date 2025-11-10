@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.faved{
+    color: #FFD700;
+}
+
 .commit-info-button{
     border: none;
     height: 50%;

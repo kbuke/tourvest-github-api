@@ -8,7 +8,8 @@ export function CommitsTable({
     pgNumber, setPgNumber,
     startIndex, setStartIndex,
     endIndex, setEndIndex,
-    commitsPerPg
+    commitsPerPg,
+    favourites, toggleFavourites
 }){
     const arrayLength = arrayType?.length
     const noOfPages = Math.ceil(arrayLength/commitsPerPg)
@@ -34,6 +35,7 @@ export function CommitsTable({
             </div>
 
             {slicedArray.map((repo, index) => {
+                const isFave = favourites.includes(repo.sha)
                 return(
                     <div
                         key={index}
@@ -46,7 +48,8 @@ export function CommitsTable({
                         </p>
 
                         <FaStar 
-                            className="fave-icon"
+                            className={`fave-icon ${isFave? "faved" : ""}`}
+                            onClick={() => toggleFavourites(repo.sha)}
                         />
 
                         <p>

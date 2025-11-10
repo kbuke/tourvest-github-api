@@ -2,7 +2,9 @@ import { useState } from "react";
 import { CommitsTable } from "../../../Components/CommitsTable";
 
 export function RenderCommits({
-    repoCommits
+    repoCommits,
+    favourites,
+    toggleFavourites
 }){
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
@@ -23,6 +25,8 @@ export function RenderCommits({
                 endIndex={endIndex}
                 setEndIndex={setEndIndex}
                 commitsPerPg={5}
+                favourites={favourites}
+                toggleFavourites={toggleFavourites}
             />
     )
 }

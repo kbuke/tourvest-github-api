@@ -3,6 +3,7 @@ import { useFetch } from "../../../Hooks/useFetch";
 
 import "./CommitsPopUp.css"
 import { RenderCommits } from "./RenderCommits";
+import { userFaveCommit } from "../../../Stores/userFaveCommit";
 
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
@@ -14,6 +15,10 @@ export function CommitsPopUp({
     const [commitOption, setCommitOption] = useState("All Commits")
     const [repoCommits, setRepoCommits] = useState([])
     const [sortDates, setSortDates] = useState("Latest")
+
+    const favourites = userFaveCommit((state) => state.favourites)
+    const toggleFavourites = userFaveCommit((state) => state.toggleFavourites)
+
 
     const dateOptions = [
         {
@@ -76,6 +81,8 @@ export function CommitsPopUp({
 
                     <RenderCommits 
                         repoCommits={repoCommits}
+                        favourites={favourites}
+                        toggleFavourites={toggleFavourites}
                     />  
 
                     <div
