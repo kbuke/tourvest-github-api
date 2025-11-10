@@ -122,6 +122,16 @@ export function CommitsPopUp({
                     <div
                         className="commit-button-container"
                     >
+                        {sha ?
+                            <button
+                                className="commit-buttons back-commit-button"
+                                onClick={() => setSha(null)}
+                            >
+                                Back to All Commits
+                            </button>
+                            :
+                            null
+                        }
                         <button
                             className="commit-buttons close-commit-button"
                             onClick={() => setSelectedRepo(null)}

@@ -80,7 +80,7 @@
     height: 10%;
     display: flex;
     justify-content: center;
-    gap: 2px;
+    gap: 5%;
 }
 
 .commit-buttons{
@@ -88,10 +88,11 @@
     align-self: center;
 
     height: 80%;
-    width: 80%;
     border: none;
     border-radius: 0.3em;
     color: white;
+    width: 20%;
+    font-size: 97%;
 }
 
 .close-commit-button{
@@ -99,5 +100,12 @@
         to right,
         hsl(0, 68%, 75%),
         hsl(0, 62%, 53%)
+    );
+}
+.back-commit-button{
+    background-image: linear-gradient(
+        to right,
+        hsl(201, 69%, 60%),
+        hsl(218, 92%, 36%)
     );
 }

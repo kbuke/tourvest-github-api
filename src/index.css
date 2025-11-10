@@ -76,3 +76,7 @@ input:focus-visible{
   height: 40%;
   width: 35%;
 }
+
+.pg-count{
+  text-align: center;
+}

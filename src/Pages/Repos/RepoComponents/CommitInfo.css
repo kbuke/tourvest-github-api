@@ -1,0 +1,39 @@
+.commit-specifics-container{
+    margin: 10px;
+    height: 65%;
+    overflow: auto;
+}
+
+.commited-message{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.commit-time{
+    font-weight: bold;
+}
+
+.file-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.file-impact-text{
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.impacted-file-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: solid 1px black;
+    text-align: center;
+}
+
+.file-grid-titles{
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+}
