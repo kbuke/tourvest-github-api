@@ -34,7 +34,8 @@ export function useFetch(additionalUrl, {setData, setIsLoading, setError, onSucc
                     setError(err.message)
                 }
             })
-            .finally(() => setIsLoading(false))
+            .finally(() => setTimeout(() => setIsLoading(false), 100)); // 100ms delay
+
 
             return () => controller.abort()
 

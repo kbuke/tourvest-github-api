@@ -3,6 +3,7 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons/faArro
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../index.css"
+import { start } from "happy-dom/lib/PropertySymbol";
 
 export function PaginationArrow({
     currentPg, setCurrentPg,
@@ -24,8 +25,8 @@ export function PaginationArrow({
                         icon={faArrowAltCircleLeft}
                         onClick={() => {
                             setCurrentPg(currentPg - 1)
-                            setStartIndex(startIndex - instanceNumber)
-                            setEndIndex(endIndex - instanceNumber)
+                            setStartIndex? setStartIndex(startIndex - instanceNumber) : null
+                            setEndIndex? setEndIndex(endIndex - instanceNumber) : null
                         }}
                     />
                 }
@@ -38,8 +39,8 @@ export function PaginationArrow({
                         icon={faArrowAltCircleRight}
                         onClick={() => {
                             setCurrentPg(currentPg + 1)
-                            setStartIndex(startIndex + instanceNumber)
-                            setEndIndex(endIndex + instanceNumber)
+                            setStartIndex? setStartIndex(startIndex + instanceNumber) : null
+                            setEndIndex? setEndIndex(endIndex + instanceNumber) : null
                         }}
                     />
                 }

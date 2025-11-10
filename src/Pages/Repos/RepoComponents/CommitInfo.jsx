@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "../../../Hooks/useFetch";
 import { PaginationArrow } from "../../../Components/PaginationArrow";
 
@@ -8,23 +8,27 @@ export function CommitInfo({
     selectedRepo,
     username,
     sha,
-    isLoading,
-    setIsLoading,
     setError
 }){
     const [commitInfo, setCommitInfo] = useState([])
     const [currentPg, setCurrentPg] = useState(1)
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndindex] = useState(5)
+    const [localLoading, setLocalLoading] = useState(false)
 
     useFetch(
-        `repos/${username}/${selectedRepo}/commits/${sha}`, {
+        username && selectedRepo && sha?
+            `repos/${username}/${selectedRepo}/commits/${sha}`
+            : 
+            null, {
             setData: setCommitInfo,
-            setIsLoading,
+            setIsLoading: setLocalLoading,
             setError,
             onSuccess: null
         }
     )
+
+    // console.log("Is Loading", localLoading)
 
     // Get specific information on the commits details
     const effectedFiles = commitInfo?.files
@@ -40,7 +44,7 @@ export function CommitInfo({
     const fileHeaders = ["File Name", "Additions", "Deletions"]
 
     return(
-        isLoading ?
+        localLoading ?
         <div
             className="loader"
         ></div>
