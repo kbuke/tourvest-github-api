@@ -59,6 +59,8 @@ export function Repo(){
 
             <RenderRepos 
                 repos={repos}
+                setRepos = {setRepos}
+                allRepos = {allRepos}
             />
         </>
     )

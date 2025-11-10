@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import "./RenderRepos.css"
 import { PaginationArrow } from "../../../Components/PaginationArrow";
+import { SortRepos } from "./SortRepos";
 
 export function RenderRepos({
-    repos
+    repos, setRepos,
+    allRepos
 }){
     // State that only 6 repositories will be shown per page
     const [startIndex, setStartIndex] = useState(0)
@@ -27,6 +29,11 @@ export function RenderRepos({
             >
                 Repositories
             </h1>
+
+            <SortRepos 
+                setRepos={setRepos}
+                allRepos={allRepos}
+            />
 
             <div
                 className="repo-grid"
@@ -83,7 +90,6 @@ export function RenderRepos({
                 instanceNumber={6}
                 lastPg={numberOfPages}
             />
-            
         </div>
     )
 }
