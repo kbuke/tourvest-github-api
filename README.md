@@ -17,15 +17,33 @@ npm i
 npm run dev
 
 ```
-- **vitest** for unit-testing my storage and fetch requests
+- **vitest** and **happy-dom** for unit-testing my storage and fetch requests
+- **react-router** for handling my routing logic. It can be installed by:
+```
+npm install react-router
+```
+-**zustand** for storing my favourited commits (state). it can be installed y:
+```
+npm install zustand
+```
+-**react-form-hook** for my form validations. It can be installed by
+```
+npm install react-form-hook
+```
+-**Font Awesome** which I used for several icons on the application. The link can be found at [https://fontawesome.com/v4/]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-[https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png] for the GitHub Icon
 
-## React Compiler
+-[https://github.blog/wp-content/uploads/2021/02/card.png?w=1200] for the Octocat image
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+-[https://www.pexels.com/photo/planet-earth-87651/] for the image of earth
 
-## Expanding the ESLint configuration
+-[https://www.canva.com/en_gb/] to edit the images
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How It Works
+-**Home Page** uses react-form-hook to handle validation and fetch user details
+
+![Demo](gifs/form validation.gif)
+
+
+
