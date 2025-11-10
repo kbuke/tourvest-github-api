@@ -43,7 +43,7 @@ npm install react-form-hook
 ## How It Works
 -**Home Page** uses react-form-hook to handle validation and fetch user details
 
-![Demo](gifs/gifs/form-validation.gif)
+![Demo](gifs/form-validation.gif)
 
 -**Repo Page** displays all the specific users repositiories that they have saved to GutHub. A user can filter repositories based on their names, as well as sort them based on the dates they were created. 
 
