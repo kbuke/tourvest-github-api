@@ -10,7 +10,6 @@ export function CommitInfo({
     sha,
     isLoading,
     setIsLoading,
-    error,
     setError
 }){
     const [commitInfo, setCommitInfo] = useState([])
@@ -26,8 +25,6 @@ export function CommitInfo({
             onSuccess: null
         }
     )
-
-    console.log("Loading", isLoading)
 
     // Get specific information on the commits details
     const effectedFiles = commitInfo?.files
@@ -88,6 +85,7 @@ export function CommitInfo({
                 {sliceFiles?.map((file, index) => (
                     <div
                         className="impacted-file-grid"
+                        key={index}
                     >
                         <p
                             className="effected-file-info"

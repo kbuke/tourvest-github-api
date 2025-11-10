@@ -45,5 +45,11 @@ npm install react-form-hook
 
 ![Demo](gifs/gifs/form-validation.gif)
 
+-**Repo Page** displays all the specific users repositiories that they have saved to GutHub. A user can filter repositories based on their names, as well as sort them based on the dates they were created. 
+
+-**Repo Commits** shows all commits made for that specific repository. A user can sort these based on the commit times, and favourite (and unfavourite) specific commits. They can also filter the commits they wish to see between all or just their favourites
+
+-**Repo Commit Info** Finally users can view specific information of thei commit. Particularly which files were effected by the commit, and how many additions and deletions there were.
+
 
 

@@ -23,9 +23,6 @@ export function CommitsPopUp({
     const favourites = userFaveCommit((state) => state.favourites)
     const toggleFavourites = userFaveCommit((state) => state.toggleFavourites)
 
-    console.log(commitOption)
-
-
     const dateOptions = [
         {
             label: "Latest - Oldest",
