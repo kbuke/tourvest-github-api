@@ -29,6 +29,44 @@
     justify-self: center;
 }
 
+.commit-options-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    padding: 1%;
+    background-image: linear-gradient(
+        to right,
+        hsl(201, 69%, 60%),
+        hsl(218, 92%, 36%)
+    );
+}
+
+.commit-options{
+    font-size: 1.5rem;
+    background-color: none;
+    padding: 10px;
+    width: auto;
+    border-radius: .3rem;
+    border: solid;
+    transition: all 0.5s;
+    text-align: center;
+    color: white;
+}
+
+.commit-options:hover{
+    letter-spacing: .3rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.selected{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+}
+
 .commit-button-container{
     height: 10%;
     display: flex;

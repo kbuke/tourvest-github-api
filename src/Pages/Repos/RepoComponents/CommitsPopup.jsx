@@ -4,6 +4,7 @@ import { useFetch } from "../../../Hooks/useFetch";
 import "./CommitsPopUp.css"
 import { RenderCommits } from "./RenderCommits";
 import { userFaveCommit } from "../../../Stores/userFaveCommit";
+import { RenderFaveCommits } from "./RenderFaveCommits";
 
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
@@ -79,11 +80,19 @@ export function CommitsPopUp({
                         </div>
                     }
 
-                    <RenderCommits 
-                        repoCommits={repoCommits}
-                        favourites={favourites}
-                        toggleFavourites={toggleFavourites}
-                    />  
+                    {commitOption.toLowerCase() === "all commits" ?
+                        <RenderCommits 
+                            repoCommits={repoCommits}
+                            favourites={favourites}
+                            toggleFavourites={toggleFavourites}
+                        />
+                        :
+                        <RenderFaveCommits 
+                            favourites={favourites}
+                            toggleFavourites={toggleFavourites}
+                            repoCommits={repoCommits}
+                        />
+                    }
 
                     <div
                         className="commit-button-container"
