@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormGroup } from "../../../Components/FormGroup";
+import { useNavigate } from "react-router";
+import { useFetch } from "../../../Hooks/useFetch";
 
 import "./GitUserForm.css"
+
 
 export function GitUserForm({
     setRepos,
@@ -11,16 +14,27 @@ export function GitUserForm({
 }){
     const [userName, setUserName] = useState("")
 
-    const submitUserName = (formData) => {
-        setUserName(formData.gitUserName)
-        alert(`${formData.gitUserName}`)
-    }
-
     const {
         register, 
         handleSubmit,
         formState: {errors}
     } = useForm()
+
+    const navigate = useNavigate()
+
+    const submitUserName = (formData) => {
+        setUserName(formData.gitUserName)
+    }
+
+    useFetch(
+        userName ? `users/${userName}/repos`: null,
+        {
+            setData: setRepos,
+            setIsLoading,
+            setError,
+            onSuccess: () => navigate(`/repos/${userName}`)
+        }
+    )
 
     const handleinputChange = (e) => {
         if (error) setError(null)

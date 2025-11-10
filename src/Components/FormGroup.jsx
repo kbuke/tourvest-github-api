@@ -1,3 +1,5 @@
+import "../index.css"
+
 export function FormGroup({
     errorMessage = "",
     children
