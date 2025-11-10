@@ -9,3 +9,30 @@ body{
 button{
   cursor: pointer;
 }
+
+/* Define input css */
+input {
+  border: 1px solid #aaa;
+  outline: none;
+  font-size: inherit;
+  padding: 0.5em;
+  border-radius: 0.2em;
+}
+
+input:focus-visible{
+  border-color: rgb(237, 9, 157);
+  box-shadow: 0 0 10px rgb(237, 9, 157);
+}
+
+.form-error{
+  text-align: center;
+  padding: 10px;
+  border-radius: 0.3rem;
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 75%, 73%),
+    hsl(0, 53%, 44%)
+  );
+  color: white;
+  height: auto;
+}

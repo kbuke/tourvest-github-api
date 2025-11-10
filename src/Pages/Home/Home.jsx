@@ -2,6 +2,8 @@ import "./Home.css"
 
 import { useOutletContext } from "react-router";
 
+import { GitUserForm } from "./HomeComponents/GitUserForm";
+
 import stars from "../../Resources/starrynight.jpg"
 import earth from "../../Resources/earth.png"
 import astrocat from "../../Resources/astrocat1.png"
@@ -40,6 +42,10 @@ export function Home(){
             {imgContainer(
                 astrocat, "astrocat-img", "astroCatImg"
             )}
+
+            <GitUserForm 
+                {...appData}
+            />
         </div>
     )
 }
