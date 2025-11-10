@@ -52,6 +52,7 @@ npm install react-form-hook
 ![Demo](gifs/commitFilter.gif)
 
 -**Repo Commit Info** Finally users can view specific information of thei commit. Particularly which files were effected by the commit, and how many additions and deletions there were.
+![Demon](gifs/commit-info.gif)
 
 
 
