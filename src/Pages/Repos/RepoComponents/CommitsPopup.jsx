@@ -8,7 +8,6 @@ import { RenderCommits } from "./RenderCommits";
 import { userFaveCommit } from "../../../Stores/userFaveCommit";
 import { RenderFaveCommits } from "./RenderFaveCommits";
 import ReactSelect from "react-select"
-import { ImPrevious } from "react-icons/im";
 
 export function CommitsPopUp({
     selectedRepo, setSelectedRepo,
@@ -24,7 +23,7 @@ export function CommitsPopUp({
     const favourites = userFaveCommit((state) => state.favourites)
     const toggleFavourites = userFaveCommit((state) => state.toggleFavourites)
 
-    console.log("Commit Pop Up isLoading", isLoading)
+    console.log(commitOption)
 
 
     const dateOptions = [
@@ -130,7 +129,8 @@ export function CommitsPopUp({
                                 className="commit-buttons back-commit-button"
                                 onClick={() => setSha(null)}
                             >
-                                Back to All Commits
+                                {/* Back to All Commits */}
+                                {`Back to ${commitOption === "All Commits" ? "All" : "Favourite"} Commits`}
                             </button>
                             :
                             null
